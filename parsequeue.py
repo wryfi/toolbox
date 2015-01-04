@@ -112,7 +112,7 @@ class Queue(object):
       # in addition to stripping whitespace, remove enclosing parentheses
       queuedMessage.error = parts[1].strip()[1:-1]
       queuedMessage.recipient = parts[2].strip()
-      sentRegex = r'([A-F0-9]*)([\*!]*)\s*([0-9]*)\s*(\w{3})\s(\w{3})\s(\d{2})\s(\d{2}):(\d{2}):(\d{2})\s*([A-Za-z0-9.@\-_+]*)'
+      sentRegex = r'([A-F0-9]*)([\*!]*)\s*([0-9]*)\s*(\w{3})\s(\w{3})\s+(\d{1,2})\s(\d{2}):(\d{2}):(\d{2})\s*([A-Za-z0-9.@\-_+]*)'
       sentInfoMatch = re.match(sentRegex, sentInfo)
       queuedMessage.queueId = sentInfoMatch.groups()[0]
       if sentInfoMatch.groups()[1] == '':
