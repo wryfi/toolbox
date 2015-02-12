@@ -82,8 +82,8 @@ class QueuedMessage(object):
 class Queue(object):
   '''
   Object representing a postfix queue. By default, reads queue from 'postqueue -p'
-  command output. To read a queue saved to a text file, pass 
-  datasource='/path/to/file'. Queued messages are represented as QueuedMeessage
+  command output. To read a queue saved to a text file (e.g. for testing), pass
+  datasource='/path/to/file'. Queued messages are represented as QueuedMessage
   objects and stored as a list in Queue.queuedMessages.
   '''
   def __init__(self, datasource='postqueue'):
@@ -125,7 +125,7 @@ class Queue(object):
       datestring = ' '.join([
           sentInfoMatch.groups()[4], 
           sentInfoMatch.groups()[5],
-          # postqueue doesn't provide a year, so assume dates are in the current year
+          # postqueue doesn't provide a year; assume dates are in the current year - yuck
           str(datetime.utcnow().year),
           sentInfoMatch.groups()[6],
           sentInfoMatch.groups()[7],
