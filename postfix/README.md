@@ -15,7 +15,7 @@ queuedMessages by sender, recipient, error, or queue.
 ## Caveats
 
 * Requires python-2.7+
-* @postqueue@ datetimes do not include a year, so message times are all presumed
+* `postqueue` datetimes do not include a year, so message times are all presumed
     to be in the current year.
 * Not resilient to changes in postqueue output formatting.
 * Probably needs to run as root on most systems.
